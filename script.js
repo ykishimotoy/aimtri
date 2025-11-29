@@ -317,15 +317,14 @@ class RippleAnimation {
     }
 }
 
-// Wave Animation for Value Proposition Section
-class WaveAnimation {
+// Sandstorm Animation for Value Proposition Section
+class SandstormAnimation {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
 
         this.ctx = this.canvas.getContext('2d');
-        this.waves = [];
-        this.time = 0;
+        this.particles = [];
         this.resize();
         this.init();
 
@@ -340,89 +339,73 @@ class WaveAnimation {
     }
 
     init() {
-        // Create multiple wave layers
-        this.waves = [
-            {
-                amplitude: 30,
-                frequency: 0.01,
-                speed: 0.02,
-                yOffset: this.canvas.height * 0.3,
-                color: { r: 255, g: 69, b: 0, a: 0.15 },
-                lineWidth: 2
-            },
-            {
-                amplitude: 40,
-                frequency: 0.008,
-                speed: 0.015,
-                yOffset: this.canvas.height * 0.5,
-                color: { r: 255, g: 107, b: 53, a: 0.2 },
-                lineWidth: 3
-            },
-            {
-                amplitude: 50,
-                frequency: 0.012,
-                speed: 0.025,
-                yOffset: this.canvas.height * 0.7,
-                color: { r: 255, g: 165, b: 0, a: 0.12 },
-                lineWidth: 2
-            },
-            {
-                amplitude: 35,
-                frequency: 0.015,
-                speed: 0.018,
-                yOffset: this.canvas.height * 0.85,
-                color: { r: 200, g: 0, b: 0, a: 0.1 },
-                lineWidth: 1.5
-            }
-        ];
+        // Create sand particles
+        const numParticles = Math.floor((this.canvas.width * this.canvas.height) / 3000);
+        for (let i = 0; i < numParticles; i++) {
+            this.createParticle();
+        }
     }
 
-    drawWave(wave, phase) {
-        this.ctx.beginPath();
+    createParticle() {
+        const colors = [
+            { r: 255, g: 69, b: 0 },    // Flame red
+            { r: 255, g: 107, b: 53 },  // Flame orange
+            { r: 255, g: 165, b: 0 },   // Orange
+            { r: 200, g: 100, b: 0 },   // Dark orange
+            { r: 150, g: 50, b: 0 }     // Very dark orange
+        ];
+        const color = colors[Math.floor(Math.random() * colors.length)];
 
-        // Draw the wave using sine function
-        for (let x = 0; x < this.canvas.width; x++) {
-            const y = wave.yOffset +
-                     Math.sin(x * wave.frequency + phase) * wave.amplitude;
-
-            if (x === 0) {
-                this.ctx.moveTo(x, y);
-            } else {
-                this.ctx.lineTo(x, y);
-            }
-        }
-
-        // Create gradient for the wave
-        const gradient = this.ctx.createLinearGradient(
-            0, wave.yOffset - wave.amplitude,
-            0, wave.yOffset + wave.amplitude
-        );
-        gradient.addColorStop(0, `rgba(${wave.color.r}, ${wave.color.g}, ${wave.color.b}, 0)`);
-        gradient.addColorStop(0.5, `rgba(${wave.color.r}, ${wave.color.g}, ${wave.color.b}, ${wave.color.a})`);
-        gradient.addColorStop(1, `rgba(${wave.color.r}, ${wave.color.g}, ${wave.color.b}, 0)`);
-
-        // Draw stroke
-        this.ctx.strokeStyle = `rgba(${wave.color.r}, ${wave.color.g}, ${wave.color.b}, ${wave.color.a * 1.5})`;
-        this.ctx.lineWidth = wave.lineWidth;
-        this.ctx.stroke();
-
-        // Fill area below the wave
-        this.ctx.lineTo(this.canvas.width, this.canvas.height);
-        this.ctx.lineTo(0, this.canvas.height);
-        this.ctx.closePath();
-        this.ctx.fillStyle = gradient;
-        this.ctx.fill();
+        this.particles.push({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            size: Math.random() * 2 + 0.5,
+            speedX: (Math.random() - 0.5) * 0.3,
+            speedY: (Math.random() - 0.5) * 0.3,
+            opacity: Math.random() * 0.15 + 0.05,
+            color: color,
+            life: 1.0,
+            decay: Math.random() * 0.002 + 0.001
+        });
     }
 
     animate() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Draw each wave layer
-        this.waves.forEach(wave => {
-            this.drawWave(wave, this.time * wave.speed);
+        // Update and draw particles
+        this.particles.forEach((particle, index) => {
+            // Update position
+            particle.x += particle.speedX;
+            particle.y += particle.speedY;
+            particle.life -= particle.decay;
+
+            // Wrap around screen edges
+            if (particle.x < 0) particle.x = this.canvas.width;
+            if (particle.x > this.canvas.width) particle.x = 0;
+            if (particle.y < 0) particle.y = this.canvas.height;
+            if (particle.y > this.canvas.height) particle.y = 0;
+
+            // Reset particle if life is over
+            if (particle.life <= 0) {
+                this.particles.splice(index, 1);
+                this.createParticle();
+                return;
+            }
+
+            // Draw particle
+            const alpha = particle.opacity * particle.life;
+            this.ctx.fillStyle = `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${alpha})`;
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            this.ctx.fill();
+
+            // Add slight glow
+            this.ctx.fillStyle = `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${alpha * 0.3})`;
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.size * 1.5, 0, Math.PI * 2);
+            this.ctx.fill();
         });
 
-        this.time += 1;
         requestAnimationFrame(() => this.animate());
     }
 }
@@ -438,8 +421,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize ripple animation for AI Dojo section
     const rippleAnimation = new RippleAnimation('rippleCanvas');
 
-    // Initialize wave animation for value proposition section
-    const waveAnimation = new WaveAnimation('waveCanvas');
+    // Initialize sandstorm animation for value proposition section
+    const sandstormAnimation = new SandstormAnimation('sandstormCanvas');
     // Initialize Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
