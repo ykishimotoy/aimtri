@@ -321,6 +321,14 @@ body {
     align-items: center;
 }
 
+.venue-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
 .overview-subtitle {
     font-size: 2rem;
     font-weight: 900;
@@ -393,6 +401,35 @@ body {
     font-size: 1rem;
     text-align: center;
     padding: var(--spacing-sm);
+}
+
+/* Program Images */
+.program-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px 12px 0 0;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.2);
+}
+
+/* AI Dojo Image */
+.dojo-site-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Value Proposition Image */
+.value-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
 }
 
 /* Programs Section */
@@ -595,6 +632,49 @@ body {
 .feature-text {
     color: var(--text-primary);
     font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.dojo-release-schedule {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(255, 107, 53, 0.05));
+    border-radius: 12px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.schedule-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--flame-orange);
+    margin-bottom: var(--spacing-sm);
+}
+
+.schedule-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.schedule-list li {
+    color: var(--text-primary);
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.schedule-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--flame-orange);
+    font-weight: bold;
+}
+
+.schedule-list li strong {
+    color: var(--flame-bright);
     font-weight: 700;
 }
 
