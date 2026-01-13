@@ -504,6 +504,294 @@ body {
     background: var(--dark-elevated);
 }
 
+.sponsors-link-wrapper {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.btn-link {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid transparent;
+}
+
+.btn-link:hover {
+    color: var(--flame-orange);
+    border-bottom-color: var(--flame-orange);
+}
+
+/* Sponsors Page Specific Styles */
+.sponsors-hero {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at bottom, #1a0a00 0%, var(--dark-bg) 100%);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--spacing-md);
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.back-link:hover {
+    color: var(--flame-orange);
+    transform: translateX(-5px);
+}
+
+.sponsors-hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.title-en-large {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.title-ja-large {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.sponsors-hero-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.sponsors-tier {
+    background: var(--dark-surface);
+}
+
+.sponsors-tier:nth-child(even) {
+    background: var(--dark-bg);
+}
+
+.tier-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.tier-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.tier-icon {
+    font-size: 2.5rem;
+}
+
+.tier-name {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Why Sponsor Section */
+.why-sponsor {
+    background: var(--dark-surface);
+}
+
+.sponsor-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.benefit-card {
+    background: var(--dark-elevated);
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--flame-orange);
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.benefit-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.benefit-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* Sponsor Plan Section */
+.sponsor-plan {
+    background: var(--dark-bg);
+}
+
+.sponsor-plan:nth-child(even) {
+    background: var(--dark-surface);
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.plan-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-top: var(--spacing-md);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: var(--spacing-sm);
+}
+
+.plan-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--dark-elevated);
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.plan-benefits-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.plan-benefits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.plan-benefits-list li {
+    padding: var(--spacing-sm) 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.plan-benefits-list li:last-child {
+    border-bottom: none;
+}
+
+.plan-benefits-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--flame-orange);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.plan-notes-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.plan-notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.plan-notes-list li {
+    padding: var(--spacing-sm) 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.plan-notes-list li strong {
+    color: var(--flame-orange);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+/* Sponsor Contact Section */
+.sponsor-contact {
+    background: radial-gradient(ellipse at center, #1a0a00 0%, var(--dark-bg) 100%);
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-md);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contact-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
 /* Programs Section */
 .programs {
     background: var(--dark-bg);
@@ -1168,6 +1456,30 @@ body {
 
     .participation-description {
         font-size: 1rem;
+    }
+
+    .title-ja-large {
+        font-size: 2.5rem;
+    }
+
+    .tier-title {
+        font-size: 2rem;
+    }
+
+    .tier-icon {
+        font-size: 2rem;
+    }
+
+    .contact-title {
+        font-size: 2rem;
+    }
+
+    .benefit-title {
+        font-size: 1.3rem;
+    }
+
+    .plan-price {
+        font-size: 2rem;
     }
 }
 
