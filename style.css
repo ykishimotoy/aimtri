@@ -1357,6 +1357,12 @@ body {
     margin-bottom: var(--spacing-xs);
 }
 
+.footer-disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: var(--spacing-sm) 0;
+}
+
 .footer-hashtag {
     color: var(--flame-orange);
     font-weight: 700;
