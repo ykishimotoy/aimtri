@@ -378,6 +378,32 @@ body {
     color: var(--text-primary);
 }
 
+.event-schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.event-schedule-table td {
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+}
+
+.event-schedule-table td:first-child {
+    white-space: nowrap;
+    font-weight: 700;
+    color: var(--flame-orange);
+    padding-left: 0;
+}
+
+.event-schedule-table td:nth-child(2) {
+    font-weight: 700;
+}
+
+.event-schedule-table td:last-child {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
 /* Image Placeholder */
 .image-placeholder {
     position: relative;
