@@ -1017,6 +1017,34 @@ body {
     color: #fff;
 }
 
+.fish-art-video {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto var(--spacing-md);
+    padding-top: 56.25%;
+}
+
+.fish-art-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.fish-art-notes {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    margin-top: var(--spacing-md);
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* AI Dojo Section */
 .ai-dojo {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a0a00 50%, #0a0a0a 100%);
