@@ -399,9 +399,10 @@ body {
     font-weight: 700;
 }
 
-.event-schedule-table td:last-child {
+.event-schedule-table .broadcast-time {
+    font-weight: 400;
+    font-size: 0.85rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
 }
 
 /* Image Placeholder */
