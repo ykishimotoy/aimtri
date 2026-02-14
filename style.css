@@ -385,6 +385,24 @@ body {
     margin-bottom: 0;
 }
 
+.youtube-btn {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: 0.75rem 1.5rem;
+    background: #FF0000;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.youtube-btn:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
 .info-label {
     font-weight: 700;
     color: var(--flame-orange);
